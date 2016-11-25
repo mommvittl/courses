@@ -1,0 +1,54 @@
+/* сброс стилей браузера */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong,  tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1.2; 
+}
+ol { 
+	padding-left: 1.4em;
+	list-style: decimal;
+}
+ul {
+	padding-left: 1.4em;
+	list-style: square;
+}
+p { word-wrap: break-word;}
+* {  box-sizing: border-box;}
+/* конец кода сброса стилей браузера */
+body { background:#FDF5E6; position: relative; }
+h1 { font: 1.5em/1.2em Arial; text-align: center; }
+/* пользовательские стили */
+.clearfix:after { content: " "; display: table; width: 100%; clear: both;}
+.outdiv { width: 100%; max-width: 1200px; margin: 0 auto;}
+.mainheader { background: #2E3B0B; color: #ECF6CE; padding: 5px 10px; }
+.mainheader a { color: #BFFF00; }
+.headerInfoBlock { border: 1px solid #E1F5A9; border-radius: 5px; padding: 4px 10px; float: right; }
+.stringError { color: red; font: 1.5rem/1.8rem arial; }
+/* Регистрация пользователя*/
+.userAuthentification { background: #BDB76B; color: #081203; padding: 10%;  }
+.userAuthentForm { border:  1px solid #2C4116; border-radius: 5px; padding: 10px; font: 1.2rem/1.5rem arial; text-align: center; }
+.userAuthentForm table { margin: 0 auto; }
+.userAuthentForm table td { padding: 1px 5px; }
+.userAuthentForm input[type="text"], .userAuthentForm input[type="password"] { padding: 2px 8px; border: none; 
+		outline: none; background: #F0F8E8; color: #484F40; font-size: 1.2rem; }
+.userAuthentForm input[type="submit"],.userAuthentForm input[type="reset"] { cursor: pointer;  border: none; outline: none; padding: 2px 7px; }		
+.userAuthentForm input[type="submit"] { background: #F79F81; color: #800000;  }
+/*===============================*/
+
+.mainnav { display: table-row; width: 100%; text-align: justify; background: #DEB887; cursor: pointer;}
+.mainnav span {width: auto; display: table-cell; text-align: center; padding: 3px; border-left: 1px solid black;}
+.mainnav span:first-of-type { border-left: none;}
+.mainnav span a {width: 1000px; display: table-cell; text-decoration: none; font: 1em arial; color: #A52A2A; }
+
+

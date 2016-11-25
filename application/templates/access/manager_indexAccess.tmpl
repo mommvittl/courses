@@ -1,0 +1,12 @@
+{% extends "manager_indexIndex.tmpl" %}
+	{% block main %}
+		<div>
+			<h2>Страница управления доступом.</h2>
+			<table>
+			<tr><th>id</th><th>username</th><th>userpassw</th><th>status</th><th>id_staff</th></tr>
+			{% for user in arrUser %}
+				<tr><th>{{user.id}}</th><th>{{user.username}}</th><th>{{user.userpassw}}</th><th>{{user.status}}</th><th>{{user.idStaff}}</th></tr>
+			{% endfor %}
+			</table>
+		</div>
+	{% endblock %}	

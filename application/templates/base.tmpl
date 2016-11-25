@@ -1,0 +1,44 @@
+<html>
+  <head>
+	<meta charset="utf-8">
+	<title>stock</title>
+	<link href="http://courses/public/css/styles.css" rel="stylesheet" />
+	<script></script>
+  </head>
+  <body>
+	<div class="outdiv">
+		<header class="mainheader clearfix">
+			{% block header %}
+			<h1>Курсы повышения квалификации Courses.</h1>
+			<div class="headerInfoBlock">
+			<p>Tel: 222-333</p>
+			<p>Email: courses@ukr.net</p>
+			<p>Вы вошли в систему как {{userNameRegistr}} .</p>
+			<p>Для выхода кликните <a href="http://courses/user/logout">Exit</a></p>
+			</div>
+			{% endblock %}								
+		</header>
+		<nav class="mainnav">
+			{% block nav %}
+			{% endblock %}	
+		</nav>
+		<main class="mainmain">
+			{% block main %}
+			<aside class="mainaside">
+				{% block sidebar %}				
+				{% endblock %}
+			</aside>
+			<section class="mainsection">
+				{% block section %}
+				{% endblock %}
+			</section>					
+			{% endblock %}
+		</main>
+		<footer>
+			{% block footer %}
+			{% endblock %}
+		</footer>
+	</div>
+	<script src="http://courses/public/js/base.js"></script>
+  </body>
+</html>
