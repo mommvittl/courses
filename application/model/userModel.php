@@ -5,15 +5,14 @@ class userModel extends baseModel{
 	protected $login = false; 
 	protected $password = false; 
 	protected $status = false; 
-	protected $username = false; 		
-	protected $userPassw = false; 
+	protected $username = false; 
 	protected $idStaff = false; 
-	
+
 	public function __construct($arrParameter = []){
 		
 		if(!empty($arrParameter) && (is_array($arrParameter)) ){
 			foreach($arrParameter as $key=>$value){
-				if( in_array($key,array('id','login','password','status','username','userpassw','idStaff') ) ){
+				if( in_array($key,array('id','login','password','status','username','idStaff') ) ){
 					$this->$key = $value;
 				}
 			}

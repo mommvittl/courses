@@ -17,7 +17,7 @@ class userRepository extends baseRepository{
 			$this->row = $this->result->fetch();		
 			if($this->row){				
 				$arr = ['id'=>$this->row['id'],'login'=>$this->row['login'],'password'=>$this->row['password'],
-				'status'=>$this->row['status'],'username'=>$this->row['username'],'userpassw'=>$this->row['userpassw'],'idStaff'=>$this->row['id_staff'] ];
+				'status'=>$this->row['status'],'username'=>$this->row['username'],'idStaff'=>$this->row['id_staff'] ];
 				return userModel::fromState($arr);
 			}
 		}
@@ -35,5 +35,8 @@ class userRepository extends baseRepository{
 			return false;
 		}	
 	}
-	
+	public function updateUser($idData,$arrParametrData){
+		
+	}
+
 }

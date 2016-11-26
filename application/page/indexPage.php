@@ -2,6 +2,7 @@
 class indexPage extends basePage{
 	
 	public function displayPage($arrParameter = []){
+		
 		require_once APP . 'Twig/Autoloader.php';
 		Twig_Autoloader::register();
 		try{

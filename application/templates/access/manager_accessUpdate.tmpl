@@ -1,0 +1,32 @@
+{% extends "index/manager_index.tmpl" %}
+	{% block main %}
+		<h2>Страница управления доступом.</h2>
+		<div class="mainnav">
+			<p>
+				<span><a href="/access/update">Изменить статус</a></span>
+				<span><a href="/access/authorize">Новые сотрудники</a></span>
+				<span><a href="/access/index">Список статуса доступа</a></span>
+			</p>
+		</div>
+		<div>
+			<form class="userAuthentForm"  method="post" name="accessNewForm"  action="/access/update">
+			<p class="clearfix"><input type="reset"></input><input type="submit" name="accessUpdateFormGo" value="Сохранить изменения"></input></p>
+			<table class="resultTable">
+				<tr><th>Nicname</th><th>Статус</th><th>Новый статус</th><th>Имя</th><th>Фамилия</th><th>дата рождения</th><th>Удалить</th></tr>
+				{% for user in arrUser %}
+				<tr><td>{{user.username}}</td><td>{{user.status}}</td>
+				<td>
+				{% if user.flag %}
+					<select size="1"  name="{{user.id}}"><option value=''>без изменений</option><option value="manager">Менеджер</option>
+						<option value="teacher">Преподаватель</option></select>				
+				{% endif %}
+				</td>				
+				<td>{{user.name}}</td><td>{{user.surname}}</td><td>{{user.birthday}}</td>
+				<td>
+				<label><input type="checkbox" name=delete[] value="{{user.id}}"></input><span>Удалить</span></label>
+				</td></tr>
+				{% endfor %}
+			</table>
+			</form>
+		</div>
+	{% endblock %}	

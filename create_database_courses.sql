@@ -87,7 +87,8 @@ create table `teacher`
 	`adress` varchar(220),
 	`email` varchar(100),
 	`skype` varchar(100),
-	`status`  varchar(50)
+	`status`  varchar(50),
+	`work`  int(1)
 );
 create table `authents`
 (
