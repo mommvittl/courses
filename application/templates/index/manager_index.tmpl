@@ -2,12 +2,15 @@
 	{% block nav %}
 		<p>
 			<span><a href="/index/index">Главная</a></span>
-			<span><a href="">Специальности</a></span>
-			<span><a href="">Группы</a></span>
-			<span><a href="">Аудитории</a></span>
-			<span><a href="">Студенты</a></span>
-			<span><a href="">Преподаватели</a></span>
+			<span><a href="/cpecialitys/index">Специальности</a></span>
+			<span><a href="/groups/index">Группы</a></span>
+			<span><a href="/auditorias/index">Аудитории</a></span>
+			<span><a href="/students/index">Студенты</a></span>
+			<span><a href="/teachers/index">Преподаватели</a></span>
 			<span><a href="/access/index">Управление доступом</a></span>
 		</p>
 		<p class="pathString">{{pathAccess}}</p>
+	{% endblock %}	
+	{% block main %}
+		<h2>Главная страница.</h2>
 	{% endblock %}	

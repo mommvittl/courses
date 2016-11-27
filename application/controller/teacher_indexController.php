@@ -1,12 +1,13 @@
 <?php
 class teacher_indexController extends BaseController
 {
-    public function indexAction() { 
-		$this->pathAccess .= 'index/index';
-		$arrParametr = []; 
-		$arrParametr['pathAccess'] = $this->pathAccess;
-		$arrParameterForPage['userNameRegistr'] = $_SESSION['username'];
-		$this->page = new indexPage("teach_index.tmpl");
-		$this->page->displayPage($arrParameterForPage);
+	    public function indexAction() { 
+		$this->pathAccess = 'index/index';
+		$this->arrParameterForPage = []; 
+		$this->arrParameterForPage['pathAccess'] = $this->pathAccess;; 
+		$this->arrParameterForPage['userNameRegistr'] = $this->sessionUserName;
+		$this->page = new indexPage("index/teacher_index.tmpl");
+		
+		$this->page->displayPage($this->arrParameterForPage);		
     }
 }

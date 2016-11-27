@@ -1,0 +1,13 @@
+{% extends "base.tmpl" %}
+	{% block nav %}
+		<p>
+			<span><a href="/index/index">Главная</a></span>
+			<span><a href="/temetable/index">Расписание</a></span>
+			<span><a href="/register/index">Журнал</a></span>
+			<span><a href="/students/index">Студенты</a></span>
+		</p>
+		<p class="pathString">{{pathAccess}}</p>	
+	{% endblock %}	
+	{% block main %}
+		<h2>Главная страница.</h2>
+	{% endblock %}	
