@@ -1,4 +1,30 @@
 {% extends "index/manager_index.tmpl" %}
 	{% block main %}
-		<h2>Страница управления преподавателями.</h2>
+	<h2>Страница управления преподавателями.</h2>
+	<aside class="accessaside clearfix">
+	{% block sidebar %}	
+		
+		<div>
+		<table class="resultTable" name="">
+		<tr><th>Имя</th><th>Фамилия</th><th>Дата рожд.</th><th>Телефон</th></tr>
+		{% for teacher in arrTeacher %}
+		<tr staffId="{{teacher.id}}">
+		<td>{{teacher.name}}</td><td>{{teacher.surname}}</td><td>{{teacher.birthday}}</td><td>{{teacher.telephon}}</td>
+		</tr>
+		{% endfor %}
+		</table>
+		</div>
+	{% endblock %}
+	</aside>
+	<section class="accesssection clearfix">	
+	{% block section %}	
+		<div class="mainnav">
+			<p>
+				<span><a href="/teachers/index">Все преподаватели</a></span>
+				<span><a href="">Добавить</a></span>
+				<span><a href="">Уволить</a></span>
+			</p>
+		</div>
+	{% endblock %}
+	</section>	
 	{% endblock %}	

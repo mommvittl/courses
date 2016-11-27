@@ -6,7 +6,7 @@ class manager_auditoriasController extends BasisController
 		$this->arrParameterForPage = []; 
 		$this->arrParameterForPage['pathAccess'] = $this->pathAccess;; 
 		$this->arrParameterForPage['userNameRegistr'] = $this->sessionUserName;
-		$this->page = new indexPage("teachers/manager_teachersIndex.tmpl");
+		$this->page = new indexPage("auditorias/manager_auditoriasIndex.tmpl");
 		
 		$this->page->displayPage($this->arrParameterForPage);
 		

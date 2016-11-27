@@ -18,6 +18,7 @@ class userModel extends baseModel{
 			}
 		}		
 	}
+	
 	public static function fromState($state){
         return new self($state);
     }

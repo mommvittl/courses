@@ -61,6 +61,7 @@ h1 { font: 1.5em/1.2em Arial; text-align: center; }
 .pathString { background: #2E3B0B; color: #ECF6CE; font: 1.4rem/1.6rem arial; }
 /*================*/
 .resultTable { width: 100%; background: #BDB76B; }
+.resultTable tr { cursor: pointer; }
 .resultTable th { padding: 1px 5px; color:  #FFFACD; }
 .resultTable td { padding: 1px 5px; background: #FFFACD; color: #556B2F; }
 .resultTable input[type="text"],.resultTable input[type="select"]{ padding: 2px 8px; border: none; 
