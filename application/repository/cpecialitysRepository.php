@@ -1,17 +1,15 @@
 <?php
-class teacherRepository extends basisRepository{
+class cpecialitysRepository extends basisRepository{
 	
 	public function __construct(){
-		$this->memory = new teacherMemory;
+		$this->memory = new cpecialitysMemory;
 	}
 	
-	public function getTeachLessAccess(){
-		
-	}
 	
 	public function getAllElement(){
 		return $this->memory->getALLElement();
 	}
+	
 	public function getAllWorkElement(){
 		$arrResult = [];
 		$arr = $this->memory->getALLElement();
@@ -20,13 +18,10 @@ class teacherRepository extends basisRepository{
 		}
 		return $arrResult;
 	}
+	
 	public function getElementById($idData){
 		return $this->memory->getElementById($idData);
 	}
-	public static function getTeacher($idData) {
-		$mem = new 	teacherMemory;
-		return $mem->getElementById($idData);
-	}	
 	
 	public function findElement($elementData){
 		return $this->memory->findElement($elementData);

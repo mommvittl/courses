@@ -3,7 +3,7 @@ class teacherMemory extends  basisMemory{
 	private $teacher;
 	
 	public function getElementById($idData){
-		$this->strQuery = "SELECT t.*,a.`id`,a.`status`,a.`username` FROM `teacher` as t left join `authents` as a on (t.`id`=a.`id_staff`)  where t.`id`=? AND t.`work`='1' ";
+		$this->strQuery = "SELECT t.*,a.`id`,a.`status`,a.`username` FROM `teacher` as t left join `authents` as a on (t.`id`=a.`id_staff`)  where t.`id`=?  ";
 		parent::getElementById($idData);
 		if($this->row){
 			$arr = ['id'=>$this->row[0],'name'=>$this->row['name'],'surname'=>$this->row['surname'],'birthday'=>$this->row['birthday'],
@@ -16,11 +16,11 @@ class teacherMemory extends  basisMemory{
 	
 	public function getALLElement(){
 		$this->arrResult = [];
-		$this->strQuery = "SELECT t.*,a.`id`,a.`status`,a.`username` FROM `teacher` as t left join `authents` as a on (t.`id`=a.`id_staff`)  where t.`work`='1' ";
+		$this->strQuery = "SELECT t.*,a.`id`,a.`status`,a.`username` FROM `teacher` as t left join `authents` as a on (t.`id`=a.`id_staff`) ";
 		parent::getALLElement();
 		if($this->row){
 			foreach($this->row as $value){
-				$arr = ['id'=>$value['id'],'name'=>$value['name'],'surname'=>$value['surname'],'birthday'=>$value['birthday'],
+				$arr = ['id'=>$value['0'],'name'=>$value['name'],'surname'=>$value['surname'],'birthday'=>$value['birthday'],
 					'telephon'=>$value['telefon'],'adress'=>$value['adress'],'email'=>$value['email'],'skype'=>$value['skype'],
 					'status'=>$value['status'],'work'=>$value['work'],'idAuthent'=>$value[10],'statusAuthent'=>$value[11],'nameAuthent'=>$value[12] ];
 				$this->arrResult[] = teacherModel::fromState($arr);

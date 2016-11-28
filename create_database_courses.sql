@@ -6,10 +6,11 @@ create table `cpecialitys`
 (
 	`id` int(20) unsigned not null auto_increment primary key,
 	`title` varchar(220),
-	`price_basis` decimal,
+	`priseBasis` decimal,
 	`description` text,
 	`quantity` int default '0',
-	`boss` int unsigned not null
+	`bossId` int unsigned not null,
+	`work`  int(1)
 );
 
 create table `students`
@@ -23,7 +24,8 @@ create table `students`
 	`email` varchar(100),
 	`skype` varchar(100),
 	`characteristic` text,
-	`dogovor` int
+	`dogovor` int,
+	`work`  int(1)
 );
 create table `groups`
 (
@@ -46,7 +48,8 @@ create table `auditorias`
 	`id` int(20) unsigned not null auto_increment primary key,
 	`title` varchar(220),
 	`adress` varchar(220),
-	`description` text
+	`description` text,
+	`work`  int(1)
 );
 create table `groups_list`
 (
@@ -97,6 +100,6 @@ create table `authents`
 	`password` varchar(120),
 	`status` varchar(20),
 	`username` varchar(120),
-	`userpassw` varchar(120),
 	`id_staff` int(20) unsigned
 );
+insert into `authents` values ( NULL, '2faa262afd91216537769bc68fdde4a413056653a1c3e7f133ad0e9244508e1a','2faa262afd91216537769bc68fdde4a413056653a1c3e7f133ad0e9244508e1a','manager','jonn',NULL);

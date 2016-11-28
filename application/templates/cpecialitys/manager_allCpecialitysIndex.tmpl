@@ -1,0 +1,32 @@
+{% extends "index/manager_index.tmpl" %}
+	{% block main %}
+		<h2>Страница управления специальностями.</h2>
+		<aside class="accessaside clearfix">		
+		<div>
+		<table class="resultTable" name="">
+		<tr><th>Название</th><th>Базовая цена</th><th>К-во уч.часов</th><th>статус</th><th>Руководитель</th></tr>
+		{% for cpecial in arrCpecial %}
+		<tr staffId="{{cpecial.id}}">
+		<td>{{cpecial.title}}</td><td>{{cpecial.priseBasis}}</td><td>{{cpecial.quantity}}</td><td>
+		{% if  cpecial.work == 1 %}
+			Рабочий
+		{% else %}
+			Закрыт
+		{% endif %}
+		</td><td>{{cpecial.bossSurname}}</td>
+		</tr>
+		{% endfor %}
+		</table>
+		</div>
+	</aside>
+	<section class="accesssection clearfix">		
+		<div class="mainnav">
+			<p>
+				<span><a href="/cpecialitys/all">Все специальности</a></span>
+				<span><a href="/cpecialitys/index">Действующие специальности</a></span>
+				<span><a href="/cpecialitys/create">Добавить</a></span>
+				<span><a href="/cpecialitys/delete">Закрыть</a></span>
+			</p>
+		</div>
+	</section>	
+	{% endblock %}	
