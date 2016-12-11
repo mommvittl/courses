@@ -1,14 +1,15 @@
 <?php
 class manager_cpecialitysController extends BasisController
 {
-	private $cpecialitys = null;
-	private $arrCpecialitys = null;
-	private $cpecialitysList = null;
-	private $teacher = null;
-	private $arrTeacher = null;
-	private $teacherList = null;
+	protected $cpecialitys = null;
+	protected $arrCpecialitys = null;
+	protected $cpecialitysList = null;
+	protected $teacher = null;
+	protected $arrTeacher = null;
+	protected $teacherList = null;
 	
 	public function __construct(){
+		parent::__construct();
 		$this->cpecialitysList = new cpecialitysRepository;	
 	}
 	
@@ -42,36 +43,45 @@ class manager_cpecialitysController extends BasisController
 	}
 	
 	public function createAction(){
-		if(isset($_POST['createCpecialitysFormGo']) ){
-			var_dump($_POST);
-			echo "<p></p>";
-			$arr= ['title'=>trim($_POST['title']),'priseBasis'=>trim($_POST['priseBasis']),'description'=>trim($_POST['description']),
-				'quantity'=>trim($_POST['quantity']),'bossId'=>(int)($_POST['bossId']),'work'=>'1'];
-			if((int)($_POST['bossId']))	{
-				 $arr['bossId'] = (int)($_POST['bossId']);
-			}else{ $arr['bossId'] = null; }	
-			$this->cpecialitys = cpecialitysModel::fromState($arr);
-			if ( cpecialitysValidate::validate($this->cpecialitys) ){
-				$this->cpecialitysList->createElement($this->cpecialitys);
-			}
-//			$t = 
-			
-		}
-		
 		$this->pathAccess = 'cpecialitys/create';
 		$this->arrParameterForPage = []; 
-		$this->arrParameterForPage['pathAccess'] = $this->pathAccess;; 
+		$this->arrParameterForPage['pathAccess'] = $this->pathAccess;
 		$this->arrParameterForPage['userNameRegistr'] = $this->sessionUserName;
-		$this->page = new indexPage("cpecialitys/manager_cpecialitysCreate.tmpl");		
-		$this->arrParameterForPage['arrCpecial'] = $this->getArrayCpecialitysForPage();
+		$this->page = new indexPage("cpecialitys/manager_cpecialitysCreate.tmpl");	
 		$this->teacherList = new teacherRepository;
+		if(isset($_POST['addCpecialitysFormGo']) ){
+			$valueData = [];
+			$valueData['title'] = trim($_POST['title']); 
+			$valueData['priseBasis'] = $_POST['priseBasis']; 
+			$valueData['description'] = trim($_POST['description']); 
+			$valueData['quantity'] = (int)($_POST['quantity']); 
+			$valueData['bossId'] = (int)($_POST['bossId']); 
+			$valueData['work'] = 1;
+			$this->cpecialitys = cpecialitysModel::fromState($valueData);
+			$this->arrParameterForPage['informFlag'] = true;
+			if ( cpecialitysValidate::validate($this->cpecialitys)){
+				if( cpecialitysValidate::addCpecialitysValidate($this->cpecialitys) ){
+					if( $this->cpecialitysList->createElement($this->cpecialitys) !== false ){					
+						$this->arrParameterForPage['stringInform'] = "Новая специальность добавлена в базу данных";
+						$valueData = [];
+					}else{
+						$this->arrParameterForPage['stringInform']  = "Ошибка при записи данных.";
+					}
+				}else{
+					$this->arrParameterForPage['stringInform'] = "Такая специальность уже есть в базе данных";
+				}	
+			}else{
+				$this->arrParameterForPage['stringInform']  = "Некорректные данные.";
+			}
+			$this->arrParameterForPage['valueData'] = $valueData;
+		}
 		$this->arrTeacher = $this->teacherList->getAllWorkElement();
 		$arr = [];
 		foreach($this->arrTeacher as $value){
 			$arr[] = [ 'id'=>$value->id,'surname'=>$value->surname ];
 		}
 		$this->arrParameterForPage['arrTeacher'] = $arr;
-		$this->page->displayPage($this->arrParameterForPage);
+		$this->page->displayPage($this->arrParameterForPage);	
 	}
 	
 	public function deleteAction(){
@@ -88,7 +98,7 @@ class manager_cpecialitysController extends BasisController
 			$this->page->displayPage($this->arrParameterForPage);
 	}
 	
-	private function getArrayCpecialitysForPage(){
+	protected function getArrayCpecialitysForPage(){
 		$arr = [];		
 		$this->arrCpecialitys = $this->cpecialitysList->getAllWorkElement();
 		foreach($this->arrCpecialitys as $value){

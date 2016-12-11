@@ -26,14 +26,21 @@ ul {
 p { word-wrap: break-word;}
 * {  box-sizing: border-box;}
 /* конец кода сброса стилей браузера */
-body { background:#FDF5E6; position: relative; }
+html { height: 100%; }
+body { background:#FDF5E6; position: relative; height: 100%;}
 h1 { font: 1.5em/1.2em Arial; text-align: center; }
 /* пользовательские стили */
 .clearfix:after { content: " "; display: table; width: 100%; clear: both;}
-.outdiv { width: 100%; max-width: 1200px; margin: 0 auto;}
-.mainheader { background: #2E3B0B; color: #ECF6CE; padding: 5px 10px; }
-.mainheader a { color: #BFFF00; }
-.headerInfoBlock { border: 1px solid #E1F5A9; border-radius: 5px; padding: 4px 10px; float: right; }
+.clearBoth { clear: both; }
+.outdiv { width: 100%; max-width: 1200px; margin: 0 auto; background: #F1F1BE; height: 100%;position: relative; }
+.mainheader { background: url(/public/images/n.jpg) center center/cover #2E3B0B;  padding: 5px 10px; }
+.mainheader > h1 {text-align: left; padding-left: 5%; font: 2.5rem/2.6rem impact; color: RGBA(153,204,255,0.5);
+	text-shadow: 1px 1px 2px #000066, -1px -1px 2px  #000066, -1px 1px 2px  #000066, 1px -1px 2px  #000066 ; }
+.mainheader > p {text-align: left; padding-left: 1%; font: 1rem/1.2rem impact; color: #3399FF; text-shadow: 0 0 2px #000033; }
+.mainheader a { color: #003399; font-family: impact; }
+.headerInfoBlock { border: 2px solid #3399FF; border-radius: 5px; padding: 4px 10px; float: right; min-width: 20%;font-family: impact; }
+.headerInfoBlock p { color: #3399FF; }
+.headerInfoBlock > p span { color: #003399; font-family: impact;}
 .stringError { color: red; font: 1.5rem/1.8rem arial; }
 /* Регистрация пользователя*/
 .userAuthentification { background: #BDB76B; color: #081203; padding: 10%;  }
@@ -54,13 +61,13 @@ h1 { font: 1.5em/1.2em Arial; text-align: center; }
 .mainnav span:first-of-type { border-left: none;}
 .mainnav span a {width: 1000px; display: table-cell; text-decoration: none; font: 1em arial; color: #A52A2A; }
 /*===============================*/
-.mainmain { width: 100%; position: relative; background: #EEE8AA; }
+.mainmain { width: 100%; position: relative;  }
 .mainmain > h2 { font: 1.2rem/1.4rem arial; text-align: center; color: #556B2F; }
 .accessaside { background: #BDB76B; width: calc( 40% - 5px ); float: right; border:  1px solid #2C4116; border-radius: 5px;padding: 5px;}
 .accesssection { background: #BDB76B; width: calc( 60% - 5px ); float: left;  border:  1px solid #2C4116; border-radius: 5px;padding: 5px;}
 .pathString { background: #2E3B0B; color: #ECF6CE; font: 1.4rem/1.6rem arial; }
 /*================*/
-.resultTable { width: 100%; background: #BDB76B; }
+.resultTable { width: 100%; background: #8B4513; }
 .resultTable tr { cursor: pointer; }
 .resultTable th { padding: 1px 5px; color:  #FFFACD; }
 .resultTable td { padding: 1px 5px; background: #FFFACD; color: #556B2F; }
@@ -69,22 +76,71 @@ h1 { font: 1.5em/1.2em Arial; text-align: center; }
 .resultTable input[type="checkbox"]	 { display: none; }	
 .resultTable label {  width: 100%; height: 100%;display: inline-block; }
 .resultTable input[type="checkbox"]:checked	+ span { background: red; cursor: pointer; display: inline-block; width: 100%; height: 100%; }	
+.resultTable .delete {  background: #8B4513; }
 /*----------------*/
+.divForAddForm { padding: 10px; background: #BDB76B; font: 1.2rem/1.2rem arial; } 
+.divForAddForm h3 { text-align: center; } 
+.divForAddForm table { width: 100%; padding: 10px; } 
+.divForAddForm table tr td:first-child { text-align: right; padding-right: 20px; color: ##006400;}
+.divForAddForm input { border: none; outline: none; cursor: pointer; padding: 3px 10px; font: 1.2rem/1.2rem arial; width: 100%; }
+.divForAddForm input[type="submit"],.divForAddForm input[type="reset"] { padding: 2px 10px; width: auto; }		
+.divForAddForm input[type="submit"] { background: #F79F81; color: #800000; float: right;  }
+.divForAddForm input[type="reset"] { float: left;  }
+/*==========================*/
+.informWindow {width:700px;max-width: 100%;height: 700px;max-height: 100%;cursor:pointer;padding:10px;background:#468CB5;color:#FFFFF0;
+	text-align:center;font: 1em/2em arial;border: 4px solid #A52A2A;position:fixed;z-index: 1000;top:50%;left:50%;transform:translate(-50%, -50%); box-shadow: 3px 3px black;}
+/*================================*/
+.groupaside {  width: calc( 40% - 5px ); float: right; padding: 5px;  height: 100%; position: relative;}
+.groupsection { width: calc( 60% - 5px ); float: left;  padding: 5px;  height: 100%; position: relative;}
+.groupsection h2 {text-align: center; font: 1.5rem/1.6rem arial; color: #A52A2A; }
+.asideAjaxContent { margin-bottom:5px; padding: 5px; position: relative; }
+.asideAjaxContent p { font: 1.2rem/1.4rem arial; color: #253B1A; }
+.asideAjaxContent p > span { background: #F5DEB3; color: #556B2F; }
+/*===============================*/
+.groupTitleTable { width: 100%;  }
+.groupTitleTable tr td:first-child { padding: 1px 5px; background: #BDB76B; color: #182710; text-align: right;}
+.groupTitleTable tr td:last-child { padding: 1px 5px; background: #FFFFE0; color: #556B2F; }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.addButton { cursor: pointer; }
+.deletebutton { cursor: pointer; background: #E39D60; color: #4D291D; }
+.modalWindow { background: #FAEBD7; box-shadow: 3px 3px black; position:absolute;z-index: 10;top:5px;Right:5px; padding: 5px 10px; border: 4px double #8B4513; padding: 5px;}
+.modalBodyWindow { width:960px; max-width: 100%;height: 700px;max-height: 100%; padding:10px; background:#FAEBD7; color:#800000; text-align:center;
+	font: 1em/2em arial; border: 4px solid #A52A2A;position:fixed; top:50%; left:50%; transform:translate(-50%, -50%);}
+/*======================================*/
+.listElementTable { width: 100%; background: #8B4513; }
+.listElementTable tr { cursor: pointer; }
+.listElementTable th { padding: 1px 5px; color:  #FAEBD7; }
+.listElementTable td { padding: 1px 5px; background: #FFEFD5; color: #A52A2A; }
+/*==================================================*/
+.stringPagePointer { margin-bottom: 4px; margin-top: 4px; }
+.stringPagePointer span { margin-left: 5px; margin-right: 5px; font: 1.5rem/1.8rem arial; padding: 1px 7px; border-radius: 5px; color: #696969; } 
+.stringPagePointer .activePagePointer { cursor: pointer; border: 1px solid black; background: #BF8029; }
+.stringPagePointer .passivePagePointer { cursor: pointer; border: 1px solid black; background: #D3D3D3; }
+.stringPagePointer .noPagePinter { background: transparent; }
+/*==================================================*/
+.personalTable { width: 100%; background: #F5DEB3; }
+.personalTable tr { cursor: pointer; }
+.personalTable tr td:first-child { padding: 1px 5px; background: #F5DEB3; color: #A52A2A; text-align: right; width: 50%;}
+.personalTable tr td:last-child { padding: 1px 5px; background: #FFFACD; color: #A52A2A;width: 50%; }
+/*=========================================================================================================*/
+.divForViewPeriod { cursor: pointer; }
+input,label { cursor: pointer; }
+.periodTametForm > .divWeek { float: left; padding: 5px 2px; border: 1px solid black;   } 
+.periodTametForm span { display: inline-block; width: 100%; text-align: center; }
+.periodTametForm input[type='checkbox'] { display: none; }
+.periodTametForm input[type='time'] { opacity: 0; display: block; margin-top: 5px;}
+.periodTametForm input[type='checkbox']:checked ~ span { background: Orange; }
+.periodTametForm input[type='checkbox']:checked ~ input[type='time'] { opacity: 1;  } 
+.divR > .divS { float: left; padding: 10px 3px; border: 1px solid black;   } 
+.periodTametForm .divR {clear: both;}
+.periodTametForm .strDay {margin-bottom: 10px; margin-top: 10px;}
+.periodTametForm .strDay input[type='time'] { opacity: 1; display: inline-block; margin-top: 0;}
+/*=================================*/
+.dddd {  overflow: scroll; height: 95%;  }
+.temetableTable { width: 100%; background: #8B4513; }
+.temetableTable tr { cursor: pointer; }
+.temetableTable th { padding: 1px 5px; color:  #FFFACD; }
+.temetableTable td { padding: 1px 5px; background: #FFFACD; color: #556B2F; cursor: pointer; }
 
 
 

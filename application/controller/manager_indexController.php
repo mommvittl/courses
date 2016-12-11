@@ -1,6 +1,10 @@
 <?php
 class manager_indexController extends BasisController
 {
+	public function __construct(){
+		parent::__construct();	
+	}
+	
 	public function indexAction() { 
 		$this->pathAccess = 'index/index';
 		$this->arrParameterForPage = []; 

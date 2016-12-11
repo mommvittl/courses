@@ -1,4 +1,13 @@
-{% extends "index/manager_index.tmpl" %}
+{% extends "groups/manager_groupsBasis.tmpl" %}
 	{% block main %}
-		<h2>Страница управления группами.</h2>
+	<aside class="groupaside clearfix">
+		<div id="asideAjaxGroupsContent" class="asideAjaxContent"></div>
+	</aside>
+	<section class="groupsection clearfix">
+		<div id="personalData" class="asideAjaxContent"></div>
+	</section>
+	{% endblock %}		
+	
+	{% block javascript %}
+		<script src="public/js/groupIndex.js"></script>
 	{% endblock %}	

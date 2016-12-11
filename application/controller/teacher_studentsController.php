@@ -1,9 +1,13 @@
 <?php
 class teacher_studentsController extends BasisController
 {
-	private $student;
-	private $arrStudent;
-	private $studentList;
+	protected $student;
+	protected $arrStudent;
+	protected $studentList;
+	
+	public function __construct(){
+		parent::__construct();	
+	}
 	
     public function indexAction() { 
 		$this->pathAccess = 'students/index';

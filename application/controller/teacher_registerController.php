@@ -1,6 +1,10 @@
 <?php
 class teacher_registerController extends BasisController
 {
+	public function __construct(){
+		parent::__construct();	
+	}
+	
     public function indexAction() { 
 		$this->pathAccess = 'register/index';
 		$this->arrParameterForPage = []; 

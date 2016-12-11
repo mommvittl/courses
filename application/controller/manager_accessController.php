@@ -30,6 +30,7 @@ class manager_accessController extends BaseController{
 		$arrParameterForPage['arrUser'] = $this->arrayResultUserData;
 		$this->page->displayPage($arrParameterForPage);
     }
+	
 	public function authorizeAction(){
 		$this->page = new indexPage("access/manager_accessAuthorize.tmpl");	
 		$this->pathAccess = 'access/authorize';

@@ -1,0 +1,24 @@
+{% extends "students/manager_studentsBasis.html" %}
+	{% block main %}
+		<div class="divForAddForm">
+			<form name="addStudentForm" method="post" action="/students/create">
+				<h3>Заполните форму для нового студента</h3>
+				<table>
+					<p class="clearfix"></p>
+					<tr><td><input type="reset"></input></td><td><input type="submit" name="addStudentFormGo" value="Добавить студента"></input></td></tr>		
+					<tr><td>Фамилия</td><td><input type="text" name="surname" value="{{valueData.surname}}"></input></td></tr>		
+					<tr><td>Имя</td><td><input type="text" name="name" value="{{valueData.name}}"></input></td></tr>		
+					<tr><td>Дата рождения</td><td><input type="date" name="birthday" value="{{valueData.birthday}}"></input></td></tr>		
+					<tr><td>телефон</td><td><input type="text" name="telephon" value="{{valueData.telephon}}"></input></td></tr>		
+					<tr><td>Адрес</td><td><input type="text" name="adress" value="{{valueData.adress}}"></input></td></tr>		
+					<tr><td>Email</td><td><input type="email" name="email" value="{{valueData.email}}"></input></td></tr>		
+					<tr><td>Skype</td><td><input type="text" name="skype" value="{{valueData.skype}}"></input></td></tr>		
+					<tr><td>Договор</td><td><input type="number" name="dogovor" value="{{valueData.dogovor}}"></input></td></tr>		
+				</table>
+			</form>		
+		{% if informFlag %}
+		<div class="informWindow" id="informWindow" onclick="this.hidden = true">
+			<p>{{stringInform}}</p>
+		</div>	
+		{% endif %}
+	{% endblock %}	

@@ -1,0 +1,26 @@
+{% extends "groups/manager_groupsBasis.tmpl" %}
+	{% block main %}
+		<div>
+			<form name="deleteGroupInArhiv" method="post" action="/groups/archiv">
+				<h3>Отметьте группы для удаления из архива</h3>
+				<P><input type="reset"></input><input type="submit" name="deleteGroupInArhivGo" value="Удалить группы из архива"></input></P>
+				<table class="temetableTable">
+					<tr><th>название</th><th>руководитель</th><th>старт обучения</th><th>окончание обучения</th><th>число занятий</th><th></th></tr>
+					{%  for group in arrGroup %}
+					<tr><td>{{group.title}}</td><td>{{group.bossSurname}}</td><td>{{group.startDataFact}}</td><td>{{group.endDataFact}}</td><td>{{group.numLesson}}</td>
+					<td><input type=checkbox name="groupName[]" value="{{group.id}}"></input></td></tr>
+					{% endfor %}
+				</table>
+			</form>
+		</div>
+		
+		{% if informFlag %}
+		<div class="informWindow" id="informWindow" onclick="this.hidden = true">
+			<p>{{stringInform}}</p>
+		</div>	
+		{% endif %}	
+	{% endblock %}		
+	
+	{% block javascript %}
+		<script src="public/js/groupIndex.js"></script>
+	{% endblock %}	

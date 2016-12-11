@@ -1,4 +1,14 @@
-{% extends "index/teacher_index.tmpl" %}
+{% extends "temetable/teacher_temetableBasis.tmpl" %}
 	{% block main %}
-		<h2>Страница управления расписанием.</h2>
+	<aside class="groupaside clearfix">
+		<div id="asideAjaxGroupsContent" class="asideAjaxContent"></div>
+	</aside>
+	<section class="groupsection clearfix">
+		<div id="personalData" class="asideAjaxContent"></div>
+	</section>
+	{% endblock %}		
+	
+	{% block javascript %}
+		<script src="public/js/temetableIndex.js"></script>
+		<script src="public/js/temetablebase.js"></script>
 	{% endblock %}	

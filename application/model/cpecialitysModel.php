@@ -18,14 +18,14 @@ class cpecialitysModel extends basisModel{
 			}
 		}
 		if ($this->bossId && !$this->boss){
-			$this->boss = teacherRepository::getTeacher($this->bossId);
+			$this->boss = ( new teacherRepository)->getElementById($this->bossId);
 		}
 	}
 	public static function fromState($state){
         return new self($state);
     }
 	public function getArrForXMLDocument(){
-		return array('id'=>$this->id,'title'=>$this->title,'priseBasis'=>$this->priseBasis,'description'=>$this->description,
-		'quantity'=>$this->quantity,'bossId'=>$this->bossId,'work'=>$this->work);
+		return array("id"=>$this->id,"title"=>$this->title,"priseBasis"=>$this->priseBasis,"description"=>$this->description,
+		"quantity"=>$this->quantity,"bossId"=>$this->bossId,"work"=>$this->work);
 	}
 }

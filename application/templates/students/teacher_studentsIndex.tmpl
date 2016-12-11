@@ -1,4 +1,13 @@
-{% extends "index/teacher_index.tmpl" %}
+{% extends "students/teacher_studentsBasis.html" %}
 	{% block main %}
-		<h2>Страница управления студентами.</h2>
+	<aside class="groupaside clearfix">
+		<div id="asideAjaxGroupsContent" class="asideAjaxContent"></div>
+	</aside>
+	<section class="groupsection clearfix">
+		<div id="personalData" class="asideAjaxContent"></div>
+	</section>
+	{% endblock %}		
+	
+	{% block javascript %}
+		<script src="public/js/studentsIndex.js"></script>
 	{% endblock %}	

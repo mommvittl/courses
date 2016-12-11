@@ -1,7 +1,11 @@
 <?php
 class teacher_indexController extends BaseController
 {
-	    public function indexAction() { 
+	public function __construct(){
+		parent::__construct();	
+	}
+	
+	public function indexAction() { 
 		$this->pathAccess = 'index/index';
 		$this->arrParameterForPage = []; 
 		$this->arrParameterForPage['pathAccess'] = $this->pathAccess;; 

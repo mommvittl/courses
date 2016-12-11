@@ -11,3 +11,4 @@ define("HOST_NAME", 'localhost');
 define("DB_NAME", 'courses');
 define("USER_NAME", 'tchr205iyw');
 define("PASSWORD", 'liraw57tqz');
+define("COLSTRINGINLIST", '12');

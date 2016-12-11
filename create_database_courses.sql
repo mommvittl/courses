@@ -9,7 +9,7 @@ create table `cpecialitys`
 	`priseBasis` decimal,
 	`description` text,
 	`quantity` int default '0',
-	`bossId` int unsigned not null,
+	`bossId` int unsigned,
 	`work`  int(1)
 );
 
@@ -33,15 +33,16 @@ create table `groups`
 	`id_special` int(20) unsigned,
 	`title` varchar(220),
 	`price` decimal,
-	`periodicity` int  default '0',
-	`quantity` int  default '0',
-	`duration` int  default '0',
-	`boss` int unsigned not null,
+	`periodicity` varchar(20),
+	`quantity` int(20)  default '0',
+	`duration` int(20)  default '0',
+	`bossId` int(20) unsigned,
 	`start_data_plan` date,
 	`start_data_fact` date,
 	`end_data_plan` date,
 	`end_data_fact` date,
-	`status` enum('anons','work','archiv')	
+	`status` enum('anons','work','archiv'),
+	`numLesson` int(10)	
 );
 create table `auditorias`
 (
@@ -57,23 +58,27 @@ create table `groups_list`
 	`id_student` int(20) unsigned,
 	`receipt_data` date,
 	`expulsion_data` date,
-	`status` enum('stusent','graduate','expulsion')
+	`status` enum('student','graduate','expulsion')
 );
 create table `temetable`
 (
 	`id` int(20) unsigned not null auto_increment primary key,
 	`id_group` int(20) unsigned,
 	`id_auditorias` int unsigned,
-	`data` date,
-	`time` time,
+	`dataPlan` date,
+	`dataFact` date,
+	`timePlan` time,
+	`timeFact` time,
 	`duration` int(20),
-	`id_teacher` int unsigned,
+	`id_teacherPlan` int(20) unsigned,
+	`id_teacherFact` int(20) unsigned,
 	`theme` text,
 	`status` enum('plan','fact')	
 );
 create table `register`
 (
 	`id_temetable` int(20) unsigned,
+	`id_group` int(20) unsigned,
 	`id_student` int(20) unsigned,
 	`attendance` int(20),
 	`assesment` int(20),

@@ -1,0 +1,28 @@
+{% extends "index/manager_index.tmpl" %}
+	{% block main %}
+		<h2>Страница управления аудиториями.</h2>
+		<div class="mainnav">
+			<p>
+				<span><a href="/auditorias/index">Все аудитории</a></span>
+				<span><a href="/auditorias/create">Добавить аудиторию</a></span>
+				<span><a href="">Удалить аудиторию</a></span>
+			</p>
+		</div>
+		<div class="divForAddForm">
+			<form name="addAuditoriasForm" method="post" action="/auditorias/create">
+				<h3>Заполните форму для новой аудитории</h3>
+				<table>
+					<p class="clearfix"></p>
+					<tr><td><input type="reset"></input></td><td><input type="submit" name="addAuditoriasFormGo" value="Добавить новую аудиторию"></input></td></tr>		
+					<tr><td>Название аудитории</td><td><input type="text" name="title" value="{{valueData.title}}"></input></td></tr>		
+					<tr><td>адрес</td><td><input type="text" name="adress" value="{{valueData.adress}}"></input></td></tr>		
+					<tr><td>Описание</td><td><textarea name="description" value="{{valueData.description}}" cols="50" rows="8"></textarea></td></tr>
+				</table>
+			</form>
+		</div>	
+	{% if informFlag %}
+		<div class="informWindow" id="informWindow" onclick="this.hidden = true">
+			<p>{{stringInform}}</p>
+		</div>	
+	{% endif %}		
+	{% endblock %}	

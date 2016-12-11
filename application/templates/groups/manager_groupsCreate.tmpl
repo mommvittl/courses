@@ -1,0 +1,52 @@
+{% extends "groups/manager_groupsBasis.tmpl" %}
+{% block main %}
+	<aside class="groupaside clearfix">
+		<div id="asideAjaxCpecialitysContent" class="asideAjaxContent"></div>
+		<div id="asideAjaxQuantityContent" class="asideAjaxContent" ></div>
+		<div id="asideAjaxDateContent" class="asideAjaxContent" ></div>		
+	</aside>
+	<section class="groupsection clearfix">
+		<div class="divForAddForm">
+			<form name="addGroupsForm" method="post" action="/groups/create">
+				<h3>Заполните форму планирования группы</h3>
+				<table>
+					<tr><td><input type="reset"></input></td><td><input type="submit" name="addGroupsFormGo" value="Запланировать новую группу"></input></td></tr>		
+					<tr>
+						<td>Cпециальность</td><td><select size="1"  name="idCpecial"  required>						
+							{% for cpecial in arrCpecial %}
+								<option value="{{cpecial.id}}">{{cpecial.title}}</option>
+							{% endfor %}
+						</select></td>
+					</tr>
+					<tr><td>Название группы</td><td><input type="text" name="title" value="{{valueData.title}}" required></input></td></tr>
+					<tr><td>цена обучения</td><td><input type="number" name="price" min="0" value="{{valueData.price}}" required></input></td></tr>
+					<tr>
+						<td>Период цикличности</td><td><select size="1"  name="periodicity" required><option value="day">Произвольный цикл</option>											
+								<option value="week">Недельный цикл</option><option value="month">Месячный цикл</option>
+						</select></td>
+					</tr>
+					<tr><td>Количество занятий за период цикличности</td><td><input type="number" name="quantity" min="0" value="{{valueData.quantity}}" required></input></td></tr>
+					<tr><td>Длительность одного занятия, часов</td><td><input type="number" name="duration" min="0" value="{{valueData.duration}}" required></input></td></tr>
+					<tr><td>Руководитель группы</td><td>
+						<select size="1"  name="bossId"><option value=""></option>
+							{% for teacher in arrTeacher %}
+								<option value="{{teacher.id}}">{{teacher.surname}}</option>
+							{% endfor %}
+						</select>
+					</td></tr>
+					<tr><td>Ориентировочная дата начала</td><td><input type="date" name="startDataPlan" value="{{valueData.startDataPlan}}" required></input></td></tr>
+					<input type="hidden" name="endDataPlan" value=""></input>
+					<input type="hidden" name="numLesson" value=""></input>
+				</table>
+			</form>
+		</div>
+	{% if informFlag %}
+		<div class="informWindow" id="informWindow" onclick="this.hidden = true">
+			<p>{{stringInform}}</p>
+		</div>	
+	{% endif %}			
+	</section>
+	{% endblock %}	
+	{% block javascript %}
+		<script src="/public/js/groupCreate.js"></script>
+	{% endblock %}	

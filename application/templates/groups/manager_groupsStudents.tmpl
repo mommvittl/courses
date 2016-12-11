@@ -1,0 +1,20 @@
+{% extends "groups/manager_groupsBasis.tmpl" %}
+	{% block main %}
+	<aside class="groupaside clearfix">
+		<form name="groupStudentSelectCpec">
+			<p><span>Специальность: </span><select name="cpecForgroupList"><option value="0">все специальности</option>
+			{% for cpecialicity in arrCpecial %}
+				<option value="{{cpecialicity.id}}">{{cpecialicity.title}}</option>
+			{% endfor %}
+			</select></p>
+		</form>
+		<div id="asideAjaxGroupsContent" class="asideAjaxContent"></div>
+	</aside>
+	<section class="groupsection clearfix">
+		<div id="personalData" class="asideAjaxContent"></div>
+	</section>
+	{% endblock %}		
+	
+	{% block javascript %}
+		<script src="public/js/groupStudents.js"></script>
+	{% endblock %}	

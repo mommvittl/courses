@@ -3,10 +3,10 @@ class UserController extends BaseController
 {
 	protected $status = false;
 	protected $username = false;
-	private $login = false;
-	private $password = false;
-	private $user;
-	private $userList;
+	protected $login = false;
+	protected $password = false;
+	protected $user;
+	protected $userList;
 	
 	public function __construct(){
         parent::__construct();

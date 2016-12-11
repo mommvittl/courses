@@ -1,0 +1,14 @@
+{% extends "temetable/teacher_temetableBasis.tmpl" %}
+	{% block main %}
+	<aside class="groupaside clearfix">
+		<div id="asideAjaxGroupsContent" class="asideAjaxContent"></div>
+	</aside>
+	<section class="groupsection clearfix">
+		<div id="personalData" class="asideAjaxContent"></div>
+	</section>
+	{% endblock %}		
+	
+	{% block javascript %}
+		<script src="public/js/temetablePersonal.js"></script>
+		<script src="public/js/temetablebase.js"></script>
+	{% endblock %}	
