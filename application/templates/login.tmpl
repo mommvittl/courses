@@ -1,7 +1,7 @@
 {% extends "base.tmpl" %}
 	{% block main %}
 		<div class="userAuthentification">
-			<form method="post" name="userLogForm" action="http://courses/user/login" class="userAuthentForm">
+			<form method="post" name="userLogForm" action="/user/login" class="userAuthentForm">
 				<p>Для входа введите логин и пароль</p>
 				<table>
 				<tr><td><input type="text" name="login" value="{{login}}"></input></td><td>Логин</td></tr>
@@ -9,6 +9,6 @@
 				<tr><td><input type="reset"></td><td></input><input type="submit" name="userLogFormGo"></input></td></tr>
 				</table>
 			</form>
-			<p>Или вы можете <a href="http://courses/user/register">зарегистрирроваться</a></p>
+			<p>Или вы можете <a href="/user/register">зарегистрирроваться</a></p>
 		</div>
 	{% endblock %}	

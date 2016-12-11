@@ -13,12 +13,17 @@ class UserController extends BaseController
     }
 	
     public function indexAction() {
+		$this->pathAccess .= 'user/index';
+		$arrParametr = []; 
+		$arrParametr['pathAccess'] = $this->pathAccess;
 		echo "LoginIndex<br>";
     }
 	
 	 public function loginAction() {
-		$arrParametr = [];  
-		$page = new indexPage("login.tmpl"); 
+		$this->pathAccess .= 'user/login'; 
+		$arrParametr = []; 
+		$arrParametr['pathAccess'] = $this->pathAccess;
+		$this->page = new indexPage("login.tmpl"); 
 		$this->userList = new userRepository;
 		if(isset($_POST['login']) && isset($_POST['password'])){	
 			$loginData = trim($_POST['login']);
@@ -30,17 +35,19 @@ class UserController extends BaseController
 					$_SESSION['id'] = $this->user->id;
 					$_SESSION['username'] = $this->user->username;
 					$_SESSION['status'] = $this->user->status;
-					header("Location: http://courses/");	
+					header("Location:/");	
 				}							
 			}
 		} 
 		$arrParametr['login'] = htmlentities($loginData , ENT_QUOTES);
-		$page->displayPage($arrParametr);	
+		$this->page->displayPage($arrParametr);	
     }
 	
 	 public function registerAction() {
+		$this->pathAccess = 'user/register';  
 		$arrParametr = []; 
-		$page = new indexPage("registration.tmpl"); 
+		$arrParametr['pathAccess'] = $this->pathAccess;
+		$this->page = new indexPage("registration.tmpl"); 
 		$this->userList = new userRepository;		
 		if(isset($_POST['userRegFormGo'])){
 			$loginData = trim($_POST['login']);
@@ -59,7 +66,7 @@ class UserController extends BaseController
 								$arrParametr['errFlag'] = true; 			
 								$arrParametr['errString'] = 'Вы зарегистрированы в системе как ' . $arrParametr['username'] . " Ваш логин " . $arrParametr['login'] . " Для
 									получения полноценного доступа ваш статус должен подтвердить администратор."; 	
-								$page->displayPage($arrParametr);
+								$this->page->displayPage($arrParametr);
 								exit;
 							}	
 						}
@@ -73,30 +80,31 @@ class UserController extends BaseController
 				$arrParametr['errString'] = 'Не все поля заполнены'; 
 			}
 		}	
-		$page->displayPage($arrParametr);
+		$this->page->displayPage($arrParametr);
 		
     }
 	 public function logoutAction() {
-			unset($_SESSION['loggedd']);
-			unset($_SESSION['id']);
-			unset($_SESSION['username']);
-			unset($_SESSION['status']);
-			header("Location: http://courses/");			
+		$this->pathAccess = 'user/logout';
+		$arrParameterForPage['pathAccess'] = $this->pathAccess;		
+		unset($_SESSION['loggedd']);
+		unset($_SESSION['id']);
+		unset($_SESSION['username']);
+		unset($_SESSION['status']);
+		header("Location: /");			
     }
 	
-	private function userAuthentification($userAuthData){
-			$arrStatusUser = ['manager','teacher'];
-			$id = $userAuthData->id;
-			$login = $userAuthData->login;
-			$password = $userAuthData->password;
-			$username = $userAuthData->username;
-			$status = $userAuthData->status;
-			$userPassw = $userAuthData->userPassw;
-			$idStaff = $userAuthData->idStaff;
-			if(in_array($status,$arrStatusUser) ){				
-				return true;
-			}
-			return false; 	
+	private function userAuthentification($userAuthData){ 
+		$arrStatusUser = ['manager','teacher'];
+		$id = $userAuthData->id;
+		$login = $userAuthData->login;
+		$password = $userAuthData->password;
+		$username = $userAuthData->username;
+		$status = $userAuthData->status;
+		$idStaff = $userAuthData->idStaff;
+		if(in_array($status,$arrStatusUser) ){				
+			return true;
+		}
+		return false; 	
 	}
 	
 }

@@ -2,7 +2,7 @@
   <head>
 	<meta charset="utf-8">
 	<title>stock</title>
-	<link href="http://courses/public/css/styles.css" rel="stylesheet" />
+	<link href="/public/css/styles.css" rel="stylesheet" />
 	<script></script>
   </head>
   <body>
@@ -14,7 +14,7 @@
 			<p>Tel: 222-333</p>
 			<p>Email: courses@ukr.net</p>
 			<p>Вы вошли в систему как {{userNameRegistr}} .</p>
-			<p>Для выхода кликните <a href="http://courses/user/logout">Exit</a></p>
+			<p>Для выхода кликните <a href="/user/logout">Exit</a></p>
 			</div>
 			{% endblock %}								
 		</header>
@@ -22,13 +22,13 @@
 			{% block nav %}
 			{% endblock %}	
 		</nav>
-		<main class="mainmain">
+		<main class="mainmain clearfix">
 			{% block main %}
-			<aside class="mainaside">
+			<aside class="mainaside clearfix">
 				{% block sidebar %}				
 				{% endblock %}
 			</aside>
-			<section class="mainsection">
+			<section class="mainsection clearfix">
 				{% block section %}
 				{% endblock %}
 			</section>					
@@ -39,6 +39,6 @@
 			{% endblock %}
 		</footer>
 	</div>
-	<script src="http://courses/public/js/base.js"></script>
+	<script src="/public/js/base.js"></script>
   </body>
 </html>

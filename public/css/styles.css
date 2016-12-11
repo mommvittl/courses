@@ -38,17 +38,53 @@ h1 { font: 1.5em/1.2em Arial; text-align: center; }
 /* Регистрация пользователя*/
 .userAuthentification { background: #BDB76B; color: #081203; padding: 10%;  }
 .userAuthentForm { border:  1px solid #2C4116; border-radius: 5px; padding: 10px; font: 1.2rem/1.5rem arial; text-align: center; }
-.userAuthentForm table { margin: 0 auto; }
-.userAuthentForm table td { padding: 1px 5px; }
+.informString { text-align: justify; color: #A52A2A; font: 1.4rem/1.6rem arial;}
+.tableTitle { text-align: center; color: #FFFACD; }
+.userAuthentForm table { margin: 0 auto; width: 100%; }
+.userAuthentForm table th { padding: 1px 5px; color:  #FFFACD; }
+.userAuthentForm table td { padding: 1px 5px;  }
 .userAuthentForm input[type="text"], .userAuthentForm input[type="password"] { padding: 2px 8px; border: none; 
-		outline: none; background: #F0F8E8; color: #484F40; font-size: 1.2rem; }
+		outline: none; background: #F0F8E8; color: #484F40; font-size: 1.2rem; width: 100%;}
 .userAuthentForm input[type="submit"],.userAuthentForm input[type="reset"] { cursor: pointer;  border: none; outline: none; padding: 2px 7px; }		
-.userAuthentForm input[type="submit"] { background: #F79F81; color: #800000;  }
+.userAuthentForm input[type="submit"] { background: #F79F81; color: #800000; float: right;  }
+.userAuthentForm input[type="reset"] { float: left;  }
 /*===============================*/
-
 .mainnav { display: table-row; width: 100%; text-align: justify; background: #DEB887; cursor: pointer;}
 .mainnav span {width: auto; display: table-cell; text-align: center; padding: 3px; border-left: 1px solid black;}
 .mainnav span:first-of-type { border-left: none;}
 .mainnav span a {width: 1000px; display: table-cell; text-decoration: none; font: 1em arial; color: #A52A2A; }
+/*===============================*/
+.mainmain { width: 100%; position: relative; background: #EEE8AA; }
+.mainmain > h2 { font: 1.2rem/1.4rem arial; text-align: center; color: #556B2F; }
+.accessaside { background: #BDB76B; width: calc( 40% - 5px ); float: right; border:  1px solid #2C4116; border-radius: 5px;padding: 5px;}
+.accesssection { background: #BDB76B; width: calc( 60% - 5px ); float: left;  border:  1px solid #2C4116; border-radius: 5px;padding: 5px;}
+.pathString { background: #2E3B0B; color: #ECF6CE; font: 1.4rem/1.6rem arial; }
+/*================*/
+.resultTable { width: 100%; background: #BDB76B; }
+.resultTable tr { cursor: pointer; }
+.resultTable th { padding: 1px 5px; color:  #FFFACD; }
+.resultTable td { padding: 1px 5px; background: #FFFACD; color: #556B2F; }
+.resultTable input[type="text"],.resultTable input[type="select"]{ padding: 2px 8px; border: none; 
+		outline: none; background: #F0F8E8; color: #484F40; font-size: 1.2rem; width: 100%;}
+.resultTable input[type="checkbox"]	 { display: none; }	
+.resultTable label {  width: 100%; height: 100%;display: inline-block; }
+.resultTable input[type="checkbox"]:checked	+ span { background: red; cursor: pointer; display: inline-block; width: 100%; height: 100%; }	
+/*----------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
